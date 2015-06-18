@@ -79,7 +79,11 @@ if(DEPTH_REG_CPU)
 endif()
 add_definitions(-DK2_CALIB_PATH="${PROJECT_SOURCE_DIR}/data/")
 
-add_library(kinect2_bridge_nodelet SHARED src/kinect2_bridge.cpp)
+set(CLASS_SOURCES
+    src/kinect2Bridge.cpp
+    src/kinect2Device.cpp)
+
+add_library(kinect2_bridge_nodelet SHARED src/kinect2_bridge.cpp ${CLASS_SOURCES})
 target_link_libraries(kinect2_bridge_nodelet
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
@@ -87,7 +91,7 @@ target_link_libraries(kinect2_bridge_nodelet
   ${kinect2_registration_LIBRARY}
 )
 
-add_executable(kinect2_bridge src/kinect2_bridge.cpp)
+add_executable(kinect2_bridge src/kinect2_bridge.cpp ${CLASS_SOURCES})
 target_link_libraries(kinect2_bridge
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
