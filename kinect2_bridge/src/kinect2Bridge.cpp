@@ -113,7 +113,7 @@ bool Kinect2Bridge::initialize() {
                                                                                params.edge_aware_filter,
                                                                                params.minDepth,
                                                                                params.maxDepth)),
-                                                   i, nh, params);
+                                                   i, &nh, params);
         }
     }
 
