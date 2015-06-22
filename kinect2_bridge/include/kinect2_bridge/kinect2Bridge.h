@@ -50,6 +50,7 @@ private:
 
 
 
+
 public:
     Kinect2Bridge(const ros::NodeHandle& nh = ros::NodeHandle(),
                   const ros::NodeHandle& priv_nh = ros::NodeHandle("~"));
